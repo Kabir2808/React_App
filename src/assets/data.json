@@ -1,0 +1,57 @@
+{
+    "categories" : [
+        {
+            "value": 40,
+            "heading": "Leptop"
+        },
+
+        {
+            "value": 100,
+            "heading": "Shoes"
+        },
+
+        {
+            "value": 80,
+            "heading": "Cameras"
+        },
+
+        {
+            "value": 60,
+            "heading": "Jeans"
+        }
+    ],
+
+    "transaction" : [
+        {
+            "id": "Patel",
+            "amount": 4000,
+            "quantity": 4,
+            "discount": 300,
+            "status": "Processing"
+        },
+
+        {
+            "id": "Dollar",
+            "amount": 13000,
+            "quantity": 91,
+            "discount": 0,
+            "status": "Shipped"
+        },
+
+        {
+            "id": "Kabir",
+            "amount": 45000,
+            "quantity": 2,
+            "discount": 2000,
+            "status": "Processing"
+        },
+
+        {
+            "id": "Daniel",
+            "amount": 18000,
+            "quantity": 2,
+            "discount": 600,
+            "status": "Shipped"
+        }
+    ]
+}
