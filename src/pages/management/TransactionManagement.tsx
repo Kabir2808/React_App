@@ -57,7 +57,7 @@ const TransactionManagement = () => {
   };
 
   return (
-    <div className="admin-container">
+    <div className="adminContainer">
       <AdminSidebar />
       <main className="product-management">
         <section
