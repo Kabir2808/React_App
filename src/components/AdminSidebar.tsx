@@ -1,30 +1,76 @@
+import { useEffect, useState } from "react";
 import { IconType } from "react-icons";
-import { Link, useLocation, Location } from "react-router-dom";
-import {
-  RiDashboardFill,
-  RiShoppingBag3Fill,
-  RiCoupon3Fill,
-} from "react-icons/ri";
 import { AiFillFileText } from "react-icons/ai";
-import { IoIosPeople } from "react-icons/io";
 import {
   FaChartBar,
-  FaChartPie,
   FaChartLine,
-  FaStopwatch,
+  FaChartPie,
   FaGamepad,
+  FaStopwatch,
 } from "react-icons/fa";
+import { HiMenuAlt4 } from "react-icons/hi";
+import { IoIosPeople } from "react-icons/io";
+import {
+  RiCoupon3Fill,
+  RiDashboardFill,
+  RiShoppingBag3Fill,
+} from "react-icons/ri";
+import { Link, Location, useLocation } from "react-router-dom";
 
 const AdminSidebar = () => {
   const location = useLocation();
 
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [phoneActive, setPhoneActive] = useState<boolean>(
+    window.innerWidth < 1100
+  );
+
+  const resizeHandler = () => {
+    setPhoneActive(window.innerWidth < 1100);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", resizeHandler);
+
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+    };
+  }, []);
+
   return (
-    <aside>
-      <h2>Logo.</h2>
-      <DivOne location={location} />
-      <DivTwo location={location} />
-      <DivThree location={location} />
-    </aside>
+    <>
+      {phoneActive && (
+        <button id="hamburger" onClick={() => setShowModal(true)}>
+          <HiMenuAlt4 />
+        </button>
+      )}
+
+      <aside
+        style={
+          phoneActive
+            ? {
+                width: "20rem",
+                height: "100vh",
+                position: "fixed",
+                top: 0,
+                left: showModal ? "0" : "-20rem",
+                transition: "all 0.5s",
+              }
+            : {}
+        }
+      >
+        <h2>Logo.</h2>
+        <DivOne location={location} />
+        <DivTwo location={location} />
+        <DivThree location={location} />
+
+        {phoneActive && (
+          <button id="close-sidebar" onClick={() => setShowModal(false)}>
+            Close
+          </button>
+        )}
+      </aside>
+    </>
   );
 };
 
